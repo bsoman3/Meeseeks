@@ -14,7 +14,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 5. In an administrator powershell, run:
 
         PS C:\Windows\system32> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-        choco install -y boxstarter
+        PS C:\Windows\system32> choco install -y boxstarter
         PS C:\Windows\system32> BoxstarterShell
         PS C:\Windows\system32> Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1 -DisableReboots
 
