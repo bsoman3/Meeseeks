@@ -20,7 +20,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 3. Take a snapshot at this stage. Call it "Initial-Sue"
 4. In the terminal window, run
     
-        wget <url to raw Sue.sh>
+        wget https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Sue.sh
         sudo chmod +x Sue.sh
         sudo ./Sue.sh
 

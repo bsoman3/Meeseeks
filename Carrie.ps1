@@ -10,9 +10,7 @@
 #   BoxstarterShell
 # 
 # Run this boxstarter package:
-# 	start http://boxstarter.org/package/nr/url?<URL-TO-RAW-Carrie.ps1>
-# OR
-# 	Install-BoxstarterPackage -PackageName <URL-TO-RAW-Carrie.ps1> -DisableReboots
+# 	Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1 -DisableReboots
 #
 # Learn more: http://boxstarter.org/Learn/WebLauncher
 
