@@ -39,7 +39,6 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 * If you have Virtualbox or VMware
     1. Go to Settings > Network and change the network adapter to "Host-only Adapter".
     2. Devices > Drag and Drop > Bidrectional
-    3. Devices > Shared Clipboard > Bidirectional
 
 * If you have Hyper-V
     1. Create a new Internal Virtual Switch.
@@ -58,7 +57,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
     
         remnux@remnux:~$ inetsim
 
-4. Open Google chrome on Carrie and type 192.168.12.1 in the address bar. You should see the the default html page for Inetsim
+4. Open Google chrome on Carrie and type `192.168.12.1` in the address bar. You should see the the default html page for Inetsim
 
 ### Celebrate with favourite snack, ice cream or dance jig
 * Celebration is a really important part of learning. [Here](https://www.youtube.com/watch?v=vjW8wmF5VWc) is another classy dance song in case you need ideas.
