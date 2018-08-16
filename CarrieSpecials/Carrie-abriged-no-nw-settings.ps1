@@ -2,6 +2,8 @@
 # Author: Bhavna Soman <bhavna.soman@gmail.com>
 # Last Updated: 2018-08-13
 #
+# From a poweshell window with admin, run the following.
+#
 # Install chocolatey:
 #   Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 #
@@ -10,7 +12,7 @@
 #   BoxstarterShell
 # 
 # Run this boxstarter package:
-# 	Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1 -DisableReboots
+# 	Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bsoman3/Meeseeks/master/CarrieSpecials/Carrie-abriged-no-nw-settings.ps1 -DisableReboots
 #
 # Learn more: http://boxstarter.org/Learn/WebLauncher
 
