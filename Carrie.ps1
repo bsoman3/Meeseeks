@@ -13,12 +13,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 write-output "Installing a few apps"
 choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1
 
-refreshenv
-
 #---- RE Tools ---
 write-output "Installing the RE tools"
 
-choco install -y  regshot --allow-empty-checksums
+choco install -y regshot --allow-empty-checksums
 choco install -y windbg
 
 choco install -y sysinternals 
@@ -139,10 +137,11 @@ write-output "
 # $Shortcut.Save()
 
 choco install -y git
+refreshenv
 git clone https://github.com/bsoman3/Meeseeks.git
 
 choco install -y ida-5.0 -s .\Meeseeks\Packages\
-$TargetFile = "C:\ProgramData\chocolatey\lib\pestudio-latest\tools\pestudio\pestudio.exe"
+$TargetFile = "C:\Program Files\IDA Free\idag.exe"
 $ShortcutFile = "$env:Public\Desktop\Ida Free.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
