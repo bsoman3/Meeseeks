@@ -1,34 +1,128 @@
 # Description: Malware Analysis Victim VM
 # Author: Bhavna Soman <bhavna.soman@gmail.com>
-# Last Updated: 2018-08-13
+# Last Updated: 2018-08-19
 #
-# Install chocolatey:
-#   Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# To install everything, run:
+#   Set-ExecutionPolicy Bypass -Scope Process -Force; iex Carrie.ps1
 #
-# Install and run boxstarter:
-#   choco install -y boxstarter
-#   BoxstarterShell
-# 
-# Run this boxstarter package:
-# 	Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1 -DisableReboots
-#
-# Learn more: http://boxstarter.org/Learn/WebLauncher
-
-$Boxstarter.RebootOk=$false 
-
-#---- TEMPORARY ---
-write-output "Disabling UAC"
-Disable-UAC
+ 
+write-output "Installing Chocolatey"
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
 
 #--- Apps ---
 write-output "Installing a few apps"
-choco install -y googlechrome notepadplusplus winscp 7zip
+choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1 git
 
 #---- RE Tools ---
 write-output "Installing the RE tools"
-choco install -y sysinternals winscp filezilla.commandline windbg procexp processhacker regshot tcpview dotnet4.7.1 vcredist2015 ida-free ollydbg wireshark hxd explorersuite fakenet ilspy pestudio javadecompiler-gui upx
 
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
+choco install -y  regshot --allow-empty-checksums
+choco install -y windbg
+
+choco install -y sysinternals 
+$TargetFile = "C:\ProgramData\chocolatey\lib\sysinternals\tools\"
+$ShortcutFile = "$env:Public\Desktop\Sysinternals.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+$TargetFile = "C:\ProgramData\chocolatey\lib\sysinternals\tools\Procmon.exe"
+$ShortcutFile = "$env:Public\Desktop\Procmon.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+$TargetFile = "C:\ProgramData\chocolatey\lib\sysinternals\tools\procexp.exe"
+$ShortcutFile = "$env:Public\Desktop\Procexp.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y dependencywalker 
+$TargetFile = "C:\ProgramData\chocolatey\lib\dependencywalker\content\depends.exe"
+$ShortcutFile = "$env:Public\Desktop\DependencyWalker.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y ollydbg 
+$TargetFile = "C:\Program Files\OllyDbg\OLLYDBG.EXE"
+$ShortcutFile = "$env:Public\Desktop\OllyDbg.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y wireshark 
+$TargetFile = "C:\Program Files\Wireshark\Wireshark.exe"
+$ShortcutFile = "$env:Public\Desktop\Wireshark.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y hxd 
+$TargetFile = "C:\Program Files\HxD\HxD.exe"
+$ShortcutFile = "$env:Public\Desktop\HxD.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y javadecompiler-gui 
+$TargetFile = "C:\ProgramData\chocolatey\lib\javadecompiler-gui\tools\jd-gui-windows-1.4.0\jd-gui.exe" 
+$ShortcutFile = "$env:Public\Desktop\Javadecompiler-Gui.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y upx 
+$TargetFile = "C:\ProgramData\chocolatey\lib\upx\tools\upx394w\upx.exe"
+$ShortcutFile = "$env:Public\Desktop\Upx.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y processhacker  
+
+choco install -y explorersuite 
+$TargetFile = "C:\ProgramData\chocolatey\lib\upx\tools\upx394w\upx.exe"
+$ShortcutFile = "$env:Public\Desktop\Cff Explorer.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y ida-free 
+$TargetFile = "C:\Program Files\IDA Freeware 7.0\ida64.exe"
+$ShortcutFile = "$env:Public\Desktop\Ida Freeware.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+choco install -y ilspy 
+$TargetFile = "C:\ProgramData\chocolatey\lib\ilspy\tools\ILSpy.exe"
+$ShortcutFile = "$env:Public\Desktop\ILSpy.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+git clone https://github.com/bsoman3/Meeseeks.git
+choco install -y Pestudio-Latest -s .\Meeseeks\Packages\
+$TargetFile = "C:\ProgramData\chocolatey\lib\pestudio-latest\tools\pestudio\pestudio.exe"
+$ShortcutFile = "$env:Public\Desktop\Pestudio.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
 
 # Disable Firewall
 Function DisableFirewall {
@@ -77,9 +171,4 @@ else {
   write-output "error: no active network adapter found"
 }
 
-#--- Restore Temporary Settings ---
-
-Enable-UAC
-
-if (Test-PendingReboot) { Invoke-Reboot }
 
