@@ -11,7 +11,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 #--- Apps ---
 write-output "Installing a few apps"
-choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1 git
+choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1 
+
+refreshenv
 
 #---- RE Tools ---
 write-output "Installing the RE tools"
@@ -99,8 +101,18 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
-# in a tragic twist of events, IDA Free can no longer be installed on a 32 bit OS.
-# and the only free images of windows that I have found are 32 bit
+choco install -y ilspy 
+$TargetFile = "C:\ProgramData\chocolatey\lib\ilspy\tools\ILSpy.exe"
+$ShortcutFile = "$env:Public\Desktop\ILSpy.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+write-output "... in a tragic twist of events, IDA Free can no longer be installed on a 32 bit OS."
+write-output "and the only free images of windows that I have found are 32 bit. SO."
+write-output "clumsy hack coming up..."
+write-output "
     # ─────────▄▄───────────────────▄▄──
     # ──────────▀█───────────────────▀█─
     # ──────────▄█───────────────────▄█─
@@ -118,6 +130,7 @@ $Shortcut.Save()
     # ───────────█████████████──────────
     # ──────────────────────────────────
     # ──────────────────────────────────
+"
 # choco install -y ida-free --x86
 # $TargetFile = "C:\Program Files\IDA Freeware 7.0\ida.exe"
 # $ShortcutFile = "$env:Public\Desktop\Ida Freeware.lnk"
@@ -126,15 +139,17 @@ $Shortcut.Save()
 # $Shortcut.TargetPath = $TargetFile
 # $Shortcut.Save()
 
-choco install -y ilspy 
-$TargetFile = "C:\ProgramData\chocolatey\lib\ilspy\tools\ILSpy.exe"
-$ShortcutFile = "$env:Public\Desktop\ILSpy.lnk"
+choco instal -y git
+git clone https://github.com/bsoman3/Meeseeks.git
+
+choco install -y ida-5.0 -s .\Meeseeks\Packages\
+$TargetFile = "C:\ProgramData\chocolatey\lib\pestudio-latest\tools\pestudio\pestudio.exe"
+$ShortcutFile = "$env:Public\Desktop\Ida Free.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
-git clone https://github.com/bsoman3/Meeseeks.git
 choco install -y Pestudio-Latest -s .\Meeseeks\Packages\
 $TargetFile = "C:\ProgramData\chocolatey\lib\pestudio-latest\tools\pestudio\pestudio.exe"
 $ShortcutFile = "$env:Public\Desktop\Pestudio.lnk"
