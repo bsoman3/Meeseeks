@@ -17,7 +17,7 @@ choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6
 write-output "Installing the RE tools"
 
 choco install -y  regshot --allow-empty-checksums
-choco install -y windbg
+choco install -y windbg --x86
 
 choco install -y sysinternals 
 $TargetFile = "C:\ProgramData\chocolatey\lib\sysinternals\tools\"
@@ -92,20 +92,39 @@ $Shortcut.Save()
 choco install -y processhacker  
 
 choco install -y explorersuite 
-$TargetFile = "C:\ProgramData\chocolatey\lib\upx\tools\upx394w\upx.exe"
+$TargetFile = "C:\Program Files\NTCore\Explorer Suite\CFF Explorer.exe"
 $ShortcutFile = "$env:Public\Desktop\Cff Explorer.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
-choco install -y ida-free 
-$TargetFile = "C:\Program Files\IDA Freeware 7.0\ida64.exe"
-$ShortcutFile = "$env:Public\Desktop\Ida Freeware.lnk"
-$WScriptShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
-$Shortcut.TargetPath = $TargetFile
-$Shortcut.Save()
+# in a tragic twist of events, IDA Free can no longer be installed on a 32 bit OS.
+# and the only free images of windows that I have found are 32 bit
+    # ─────────▄▄───────────────────▄▄──
+    # ──────────▀█───────────────────▀█─
+    # ──────────▄█───────────────────▄█─
+    # ──█████████▀───────────█████████▀─
+    # ───▄██████▄─────────────▄██████▄──
+    # ─▄██▀────▀██▄─────────▄██▀────▀██▄
+    # ─██────────██─────────██────────██
+    # ─██───██───██─────────██───██───██
+    # ─██────────██─────────██────────██
+    # ──██▄────▄██───────────██▄────▄██─
+    # ───▀██████▀─────────────▀██████▀──
+    # ──────────────────────────────────
+    # ──────────────────────────────────
+    # ──────────────────────────────────
+    # ───────────█████████████──────────
+    # ──────────────────────────────────
+    # ──────────────────────────────────
+# choco install -y ida-free --x86
+# $TargetFile = "C:\Program Files\IDA Freeware 7.0\ida.exe"
+# $ShortcutFile = "$env:Public\Desktop\Ida Freeware.lnk"
+# $WScriptShell = New-Object -ComObject WScript.Shell
+# $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+# $Shortcut.TargetPath = $TargetFile
+# $Shortcut.Save()
 
 choco install -y ilspy 
 $TargetFile = "C:\ProgramData\chocolatey\lib\ilspy\tools\ILSpy.exe"
