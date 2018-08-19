@@ -3,7 +3,7 @@
 # Last Updated: 2018-08-19
 #
 # To install everything, run:
-#   Set-ExecutionPolicy Bypass -Scope Process -Force; iex Carrie.ps1
+#   Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1'))
 #
  
 write-output "Installing Chocolatey"
@@ -11,7 +11,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 #--- Apps ---
 write-output "Installing a few apps"
-choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1 
+choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1
 
 refreshenv
 
@@ -19,7 +19,7 @@ refreshenv
 write-output "Installing the RE tools"
 
 choco install -y  regshot --allow-empty-checksums
-choco install -y windbg --x86
+choco install -y windbg
 
 choco install -y sysinternals 
 $TargetFile = "C:\ProgramData\chocolatey\lib\sysinternals\tools\"
@@ -109,8 +109,9 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
-# in a tragic twist of events, IDA Free can no longer be installed on a 32 bit OS.
-# and the only free images of windows that I have found are 32 bit
+write-output "...in a tragic twist of events, IDA Free can no longer be installed on a 32 bit OS."
+write-output "and the only free images of windows that I have found are 32 bit"
+write-output "
     # ─────────▄▄───────────────────▄▄──
     # ──────────▀█───────────────────▀█─
     # ──────────▄█───────────────────▄█─
@@ -128,6 +129,7 @@ $Shortcut.Save()
     # ───────────█████████████──────────
     # ──────────────────────────────────
     # ──────────────────────────────────
+"
 # choco install -y ida-free --x86
 # $TargetFile = "C:\Program Files\IDA Freeware 7.0\ida.exe"
 # $ShortcutFile = "$env:Public\Desktop\Ida Freeware.lnk"
@@ -136,7 +138,7 @@ $Shortcut.Save()
 # $Shortcut.TargetPath = $TargetFile
 # $Shortcut.Save()
 
-choco instal -y git
+choco install -y git
 git clone https://github.com/bsoman3/Meeseeks.git
 
 choco install -y ida-5.0 -s .\Meeseeks\Packages\
