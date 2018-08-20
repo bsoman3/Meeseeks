@@ -1,6 +1,6 @@
 # Description: Malware Analysis Victim VM
 # Author: Bhavna Soman <bhavna.soman@gmail.com>
-# Last Updated: 2018-08-19
+# Last Updated: 2018-08-20
 #
 # To install everything, run:
 #   Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1'))
@@ -109,7 +109,7 @@ $Shortcut.Save()
 
 write-output "...in a tragic twist of events, IDA Free can no longer be installed on a 32 bit OS."
 write-output "and the only free images of windows that I have found are 32 bit"
-write-output "
+write-output "...so here's a hack job"
     # ─────────▄▄───────────────────▄▄──
     # ──────────▀█───────────────────▀█─
     # ──────────▄█───────────────────▄█─
@@ -127,7 +127,7 @@ write-output "
     # ───────────█████████████──────────
     # ──────────────────────────────────
     # ──────────────────────────────────
-"
+
 # choco install -y ida-free --x86
 # $TargetFile = "C:\Program Files\IDA Freeware 7.0\ida.exe"
 # $ShortcutFile = "$env:Public\Desktop\Ida Freeware.lnk"
@@ -137,7 +137,9 @@ write-output "
 # $Shortcut.Save()
 
 choco install -y git
+$env:path+='C:\Program Files\Git\cmd'
 refreshenv
+
 git clone https://github.com/bsoman3/Meeseeks.git
 
 choco install -y ida-5.0 -s .\Meeseeks\Packages\
