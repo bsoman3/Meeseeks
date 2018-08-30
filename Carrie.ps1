@@ -170,7 +170,12 @@ $url_RDG = "http://rdgsoft.net/downloads/RDG.Packer.Detector.v0.7.6.2017.zip"
 $output_RDGArchive = "$env:Public\Documents\RDGPackerDetector.zip"
 $output_RDG = "$env:Public\Documents\"
 (New-Object System.Net.WebClient).DownloadFile($url_RDG, $output_RDGArchive)
-Expand-Archive $output_RDGArchive -DestinationPath $output_RDG -Force
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($output_RDGArchive)
+foreach($item in $zip.items())
+{
+        $shell.Namespace($output_RDG).copyhere($item)
+}
 $TargetFile = "$env:Public\Documents\RDG Packer Detector v0.7.6.2017\RDG Packer Detector v0.7.6.exe"
 $ShortcutFile = "$env:Public\Desktop\RDGPackerDetector.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
@@ -178,7 +183,10 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
-$TargetFile = ".\Meeseeks\Packages\Scylla\Scylla v0.9.7c\Scylla_x86.exe"
+$source = ".\Meeseeks\Packages\Scylla\Scylla v0.9.7c"
+$destination = "$env:Public\Documents\"
+copy-item $source $destination -Recurse -Force
+$TargetFile = "$env:Public\Documents\Scylla v0.9.7c\Scylla_x86.exe"
 $ShortcutFile = "$env:Public\Desktop\Scylla.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
