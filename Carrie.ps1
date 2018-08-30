@@ -158,6 +158,33 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
+choco install -y FileAlyzer -s .\Meeseeks\Packages\
+$TargetFile = "C:\Program Files\Safer Networking\FileAlyzer 2\FileAlyzer2.exe"
+$ShortcutFile = "$env:Public\Desktop\FileAlyzer.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+$url_RDG = "http://rdgsoft.net/downloads/RDG.Packer.Detector.v0.7.6.2017.zip"
+$output_RDGArchive = "$env:Public\Documents\RDGPackerDetector.zip"
+$output_RDG = "$env:Public\Documents\"
+(New-Object System.Net.WebClient).DownloadFile($url_RDG, $output_RDGArchive)
+Expand-Archive $output_RDGArchive -DestinationPath $output_RDG -Force
+$TargetFile = "$env:Public\Documents\RDG Packer Detector v0.7.6.2017\RDG Packer Detector v0.7.6.exe"
+$ShortcutFile = "$env:Public\Desktop\RDGPackerDetector.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
+$TargetFile = ".\Meeseeks\Packages\Scylla\Scylla v0.9.7c\Scylla_x86.exe"
+$ShortcutFile = "$env:Public\Desktop\Scylla.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
 # Disable Firewall
 Function DisableFirewall {
     Write-Host "Disabling Firewall..."

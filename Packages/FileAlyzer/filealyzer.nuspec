@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    
+    <id>filealyzer</id>
+   
+    <version>1.0</version>
+
+    <title>FileAlyzer (Install)</title>
+    <authors>Safer Networking</authors>
+
+    <tags>filealyzer pe</tags>
+    <summary>Structure of Portable Executable</summary>
+    <description>Structure of Portable Executable</description>
+  </metadata>
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\**" target="tools" />
+    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+  </files>
+</package>
