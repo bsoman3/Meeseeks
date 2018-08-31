@@ -3,7 +3,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 
 ### Download and install a hypervisor of your choice.
 * Vmware Workstation (you can get a trial license for 30 days)
-* Virtualbox (free)
+* Virtualbox (free) <- preferred
 * Hyper-V (pre-installed in some MSFT enterprise machines)
 
 ### Set up Carrie, the Victim VM
@@ -41,6 +41,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 * If you have Hyper-V
     1. Create a new Internal Virtual Switch.
     2. Connect both your virtual machines to that switch.
+    3. Gotcha: Hyper-V doesn't allow bi-directional clipboard. In the menu bar on the VM window, there is a "Clipboard" option. You will be using that instead.
 
 ### Testing your setup
 1. Ping from Carrie to Sue.

@@ -61,12 +61,6 @@ $url_OllyDump = "http://www.openrce.org/downloads/download_file/108"
 $output_OllyDumpArchive = "$env:Public\Documents\OllyDump.zip"
 $output_OllyDump = "C:\Program Files\OllyDbg\"
 (New-Object System.Net.WebClient).DownloadFile($url_OllyDump, $output_OllyDumpArchive)
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace($output_OllyDumpArchive)
-foreach($item in $zip.items())
-{
-        $shell.Namespace($output_OllyDump).copyhere($item)
-}
 
 choco install -y wireshark 
 $TargetFile = "C:\Program Files\Wireshark\Wireshark.exe"
@@ -181,18 +175,6 @@ $url_RDG = "http://rdgsoft.net/downloads/RDG.Packer.Detector.v0.7.6.2017.zip"
 $output_RDGArchive = "$env:Public\Documents\RDGPackerDetector.zip"
 $output_RDG = "$env:Public\Documents\"
 (New-Object System.Net.WebClient).DownloadFile($url_RDG, $output_RDGArchive)
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace($output_RDGArchive)
-foreach($item in $zip.items())
-{
-        $shell.Namespace($output_RDG).copyhere($item)
-}
-$TargetFile = "$env:Public\Documents\RDG Packer Detector v0.7.6.2017\RDG Packer Detector v0.7.6.exe"
-$ShortcutFile = "$env:Public\Desktop\RDGPackerDetector.lnk"
-$WScriptShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
-$Shortcut.TargetPath = $TargetFile
-$Shortcut.Save()
 
 $source = ".\Meeseeks\Packages\Scylla\Scylla v0.9.7c"
 $destination = "$env:Public\Documents\"
@@ -208,18 +190,40 @@ $url_ByteHist = "https://cert.at/static/downloads/software/bytehist/bytehist_1_0
 $output_ByteHistArchive = "$env:Public\Documents\bytehist_1_0_102_windows.zip"
 $output_ByteHist = "$env:Public\Documents\ByteHist\"
 (New-Object System.Net.WebClient).DownloadFile($url_ByteHist, $output_ByteHistArchive)
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace($output_ByteHistArchive)
-foreach($item in $zip.items())
+
+
+$shell_1 = new-object -com shell.application
+$zip_1 = $shell_1.NameSpace($output_OllyDumpArchive)
+foreach($item_1 in $zip_1.items())
 {
-        $shell.Namespace($output_ByteHist).copyhere($item)
+        $shell_1.Namespace($output_OllyDump).copyhere($item_1)
 }
-$TargetFile = "$env:Public\Documents\ByteHist\win32\bytehist.exe"
-$ShortcutFile = "$env:Public\Desktop\ByteHist.lnk"
-$WScriptShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
-$Shortcut.TargetPath = $TargetFile
-$Shortcut.Save()
+
+$shell_2 = new-object -com shell.application
+$zip_2 = $shell_2.NameSpace($output_RDGArchive)
+foreach($item_2 in $zip_2.items())
+{
+        $shell_2.Namespace($output_RDG).copyhere($item_2)
+}
+$TargetFile_2 = "$env:Public\Documents\RDG Packer Detector v0.7.6.2017\RDG Packer Detector v0.7.6.exe"
+$ShortcutFile_2 = "$env:Public\Desktop\RDGPackerDetector.lnk"
+$WScriptShell_2 = New-Object -ComObject WScript.Shell
+$Shortcut_2 = $WScriptShell_2.CreateShortcut($ShortcutFile_2)
+$Shortcut_2.TargetPath = $TargetFile_2
+$Shortcut_2.Save()
+
+$shell_3 = new-object -com shell.application
+$zip_3 = $shell_3.NameSpace($output_ByteHistArchive)
+foreach($item_3 in $zip_3.items())
+{
+        $shell_3.Namespace($output_ByteHist).copyhere($item_3)
+}
+$TargetFile_3 = "$env:Public\Documents\ByteHist\win32\bytehist.exe"
+$ShortcutFile_3 = "$env:Public\Desktop\ByteHist.lnk"
+$WScriptShell_3 = New-Object -ComObject WScript.Shell
+$Shortcut_3 = $WScriptShell_3.CreateShortcut($ShortcutFile_3)
+$Shortcut_3.TargetPath = $TargetFile_3
+$Shortcut_3.Save()
 
 # Disable Firewall
 Function DisableFirewall {
