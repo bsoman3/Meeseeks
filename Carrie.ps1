@@ -193,6 +193,23 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
+$url_ByteHist = "https://cert.at/static/downloads/software/bytehist/bytehist_1_0_102_windows.zip"
+$output_ByteHistArchive = "$env:Public\Documents\bytehist_1_0_102_windows.zip"
+$output_ByteHist = "$env:Public\Documents\ByteHist\"
+(New-Object System.Net.WebClient).DownloadFile($url_ByteHist, $output_ByteHistArchive)
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($output_ByteHistArchive)
+foreach($item in $zip.items())
+{
+        $shell.Namespace($output_ByteHist).copyhere($item)
+}
+$TargetFile = "$env:Public\Documents\ByteHist\win32\bytehist.exe"
+$ShortcutFile = "$env:Public\Desktop\ByteHist.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+
 # Disable Firewall
 Function DisableFirewall {
     Write-Host "Disabling Firewall..."
