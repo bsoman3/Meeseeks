@@ -57,6 +57,17 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
 
+$url_OllyDump = "http://www.openrce.org/downloads/download_file/108"
+$output_OllyDumpArchive = "$env:Public\Documents\OllyDump.zip"
+$output_OllyDump = "C:\Program Files\OllyDbg\"
+(New-Object System.Net.WebClient).DownloadFile($url_OllyDump, $output_OllyDumpArchive)
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($output_OllyDumpArchive)
+foreach($item in $zip.items())
+{
+        $shell.Namespace($output_OllyDump).copyhere($item)
+}
+
 choco install -y wireshark 
 $TargetFile = "C:\Program Files\Wireshark\Wireshark.exe"
 $ShortcutFile = "$env:Public\Desktop\Wireshark.lnk"
