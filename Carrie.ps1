@@ -194,7 +194,7 @@ $Shortcut.Save()
 $source = ".\Meeseeks\Packages\bytehist_1_0_102_windows\win32"
 $destination = "$env:Public\Documents\ByteHist"
 copy-item $source $destination -Recurse -Force
-$TargetFile = "$env:Public\Documents\bytehist_1_0_102_windows\win32\bytehist.exe"
+$TargetFile = "$env:Public\Documents\ByteHist\bytehist.exe"
 $ShortcutFile = "$env:Public\Desktop\ByteHist.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
