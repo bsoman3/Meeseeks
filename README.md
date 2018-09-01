@@ -3,7 +3,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 
 ### Download and install a hypervisor of your choice.
 * Vmware Workstation (you can get a trial license for 30 days)
-* Virtualbox (free) <- preferred
+* Virtualbox (free) 
 * Hyper-V (pre-installed in some MSFT enterprise machines)
 
 ### Set up Carrie, the Victim VM
