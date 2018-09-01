@@ -11,7 +11,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 #--- Apps ---
 write-output "Installing a few apps"
-choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1
+choco install -y googlechrome notepadplusplus winscp winrar mingw 7zip dotnet4.6.1 netcat
 
 #---- RE Tools ---
 write-output "Installing the RE tools"
