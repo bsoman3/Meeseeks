@@ -47,7 +47,8 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 ### Testing your setup
 1. Try transfering a file on to your VM from your host. This is critical.
 
-(Optional steps, if you set up the sniffer VM)
+*(Steps 2-5 are optional, and needed only if you set up the sniffer VM)*
+
 2. Ping from Carrie to Sue.
         
         PS C:\Users\IEUser> ping 192.168.12.1
