@@ -12,7 +12,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 2. Import this image into your hypervisor (Hyper-V, Virtualbox, VMWare, or whatever you're using).
     1. When creating the VM, use the Settings menu to increase the RAM to 2048
 4. Once the VM is created, take a snapshot at this stage. Call it "Initial-Carrie".
-5. Enable Shared Clipboard in VM settings.
+5. Enable Shared Clipboard in VM settings. Or if you're using Hyper-V, use the "Clipboard" menu in the VM menu bar.
 6. In an administrator powershell, run:
 
         PS C:\Windows\system32> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1'))
