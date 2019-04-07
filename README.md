@@ -20,7 +20,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 7. **Celebrate!!** [Sample jig for celebration](https://www.youtube.com/watch?v=7PCkvCPvDXk)
 
 ### Set up Sue, the Sniffer VM
-Note: This is optional, and will not be used in the workshop. Feel free to skip to the Data Transfer Section.
+*Note: This is optional, and will not be used in the workshop. Feel free to skip to the Data Transfer Section.*
 1. Download a REMnux image [here](https://remnux.org/).
 2. Import the image into your hypervisor.
 3. Take a snapshot at this stage. Call it "Initial-Sue"
