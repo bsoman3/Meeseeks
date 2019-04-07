@@ -20,6 +20,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 7. **Celebrate!!** [Sample jig for celebration](https://www.youtube.com/watch?v=7PCkvCPvDXk)
 
 ### Set up Sue, the Sniffer VM
+Note: This is optional, and will not be used in the workshop. Feel free to skip to the Data Transfer Section.
 1. Download a REMnux image [here](https://remnux.org/).
 2. Import the image into your hypervisor.
 3. Take a snapshot at this stage. Call it "Initial-Sue"
@@ -33,7 +34,7 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 6. Take a snapshot at this stage. Call it "Ready".
 7. **Celebrate!!** [Sample jig for celebration](https://www.youtube.com/watch?v=OPf0YbXqDm0)
 
-### For both VMs
+### Data Transfer Setup
 * If you have Virtualbox or VMware
     1. Go to Settings > Network and change the network adapter to "Host-only Adapter".
     2. Devices > Drag and Drop > Bidrectional
@@ -44,19 +45,22 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
     3. Gotcha: Hyper-V doesn't allow bi-directional clipboard. In the menu bar on the VM window, there is a "Clipboard" option. You will be using that instead.
 
 ### Testing your setup
-1. Ping from Carrie to Sue.
+1. Try transfering a file on to your VM from your host. This is critical.
+
+(Optional steps, if you set up the sniffer VM)
+2. Ping from Carrie to Sue.
         
         PS C:\Users\IEUser> ping 192.168.12.1
 
-2. Ping from Sue to Carrie.
+3. Ping from Sue to Carrie.
         
         remnux@remnux:~$ ping 192.168.12.2
 
-3. Start inetsim on Sue by
+4. Start inetsim on Sue by
     
         remnux@remnux:~$ inetsim
 
-4. Open Google chrome on Carrie and type `192.168.12.1` in the address bar. You should see the the default html page for Inetsim
+5. Open Google chrome on Carrie and type `192.168.12.1` in the address bar. You should see the the default html page for Inetsim
 
 ### Celebrate with favourite snack, ice cream or dance jig
 * Celebration is a really important part of learning. [Here](https://www.youtube.com/watch?v=vjW8wmF5VWc) is another classy dance song in case you need ideas.
