@@ -8,14 +8,17 @@ VM setup for Malware RE labs. Follow the steps below, **celebrate at the correct
 
 ### Set up Carrie, the Victim VM
 1. Download VM from [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
-2. Select Win7 with IE8, and the hypervisor you will be using. Import the VM into your hypervisor.
-3. Use the Settings menu to increase the RAM to 2048
-4. Take a snapshot at this stage. Call it "Initial-Carrie".
+    a. Select Win7 with IE8, and the hypervisor you will be using.
+2. Import this image into your hypervisor (Hyper-V, Virtualbox, VMWare, or whatever you're using).
+    a. When creating the VM, use the Settings menu to increase the RAM to 2048
+4. Once the VM is created, take a snapshot at this stage. Call it "Initial-Carrie".
 5. Enable Shared Clipboard in VM settings.
 6. In an administrator powershell, run:
 
         PS C:\Windows\system32> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/bsoman3/Meeseeks/master/Carrie.ps1'))
-
+    a. This step may take a while to run. If it successful, you will see several new icons on the desktop and in the start menu.
+    b. Play with some of your new tools-- run IDA from the start menu and click around its interface
+    c. Open OllyDBG and drag any exe file into its window. What do you notice?
 6. Take a snapshot at this stage. Call it "Clean".
 7. **Celebrate!!** [Sample jig for celebration](https://www.youtube.com/watch?v=7PCkvCPvDXk)
 
